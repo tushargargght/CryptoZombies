@@ -1,0 +1,577 @@
+{
+	"compiler": {
+		"version": "0.5.17+commit.d19bba13"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_approved",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "Approval",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "zombieId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "dna",
+						"type": "uint256"
+					}
+				],
+				"name": "NewZombie",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "Transfer",
+				"type": "event"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_approved",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "approve",
+				"outputs": [],
+				"payable": true,
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_zombieId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_targetId",
+						"type": "uint256"
+					}
+				],
+				"name": "attack",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_zombieId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_newDna",
+						"type": "uint256"
+					}
+				],
+				"name": "changeDna",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_zombieId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_newName",
+						"type": "string"
+					}
+				],
+				"name": "changeName",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					}
+				],
+				"name": "createRandomZombie",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_zombieId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_kittyId",
+						"type": "uint256"
+					}
+				],
+				"name": "feedOnKitty",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					}
+				],
+				"name": "getZombiesByOwner",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "isOwner",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_zombieId",
+						"type": "uint256"
+					}
+				],
+				"name": "levelUp",
+				"outputs": [],
+				"payable": true,
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "ownerOf",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "setKittyContractAddress",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_fee",
+						"type": "uint256"
+					}
+				],
+				"name": "setLevelUpFee",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "transferFrom",
+				"outputs": [],
+				"payable": true,
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "zombieToOwner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "zombies",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "dna",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint32",
+						"name": "level",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint32",
+						"name": "readyTime",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint16",
+						"name": "winCount",
+						"type": "uint16"
+					},
+					{
+						"internalType": "uint16",
+						"name": "lossCount",
+						"type": "uint16"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {
+				"isOwner()": {
+					"return": "true if `msg.sender` is the owner of the contract."
+				},
+				"owner()": {
+					"return": "the address of the owner."
+				},
+				"renounceOwnership()": {
+					"details": "Allows the current owner to relinquish control of the contract."
+				},
+				"transferOwnership(address)": {
+					"details": "Allows the current owner to transfer control of the contract to a newOwner.",
+					"params": {
+						"newOwner": "The address to transfer ownership to."
+					}
+				}
+			}
+		},
+		"userdoc": {
+			"methods": {
+				"renounceOwnership()": {
+					"notice": "Renouncing to ownership will leave the contract without an owner. It will not be possible to call the functions with the `onlyOwner` modifier anymore."
+				}
+			}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/CryptoZombies.sol": "CryptoZombies"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/CryptoZombies.sol": {
+			"keccak256": "0x06a99b9bed6d459dc9d98bada9225d287d751196e39c8d3fa694d51731dc4570",
+			"urls": [
+				"bzz-raw://0767d7a4cc71b1f9b47ad9c2e8e850098fa77f8d1333aa19820788807811d655",
+				"dweb:/ipfs/QmXWre2cVgPK8sthLoqxz1FyeZEdG98xGVzQzERDc5ZRRc"
+			]
+		},
+		"contracts/ZombieOwnership.sol": {
+			"keccak256": "0xe3a2ccc44c98e6209e8cf9e109d8d3bcdfafd0be7a822147426b462d48ef2cf2",
+			"urls": [
+				"bzz-raw://73c967f579a28faa2b2b522cd1f997244c188106d7500405b0ec3b0f78032c52",
+				"dweb:/ipfs/QmQXv52Taz3QrgK1TsTtKDM82aU4WJwgVG6DiJ2m5jdAbH"
+			]
+		},
+		"contracts/erc721.sol": {
+			"keccak256": "0xb58c69bf5f51bbbc11ea4f407edc6240dc62777f530c915221ec869b634a1519",
+			"urls": [
+				"bzz-raw://afa94cbb21200a323d4fdfba4c514d9aabb86d113c26174792617c46be991336",
+				"dweb:/ipfs/QmWbiFmSNQj1TrbiAio3oKeiHJKCohXGEMJH8KPvFpbEye"
+			]
+		},
+		"contracts/ownable.sol": {
+			"keccak256": "0x33f9862afb90391d02eed330569a92bc9143dd1cb5d6661d737bcedb22f24c68",
+			"urls": [
+				"bzz-raw://e8f11612996616032f44968b1850c1e71a94a368094141a23f229f2c1a260990",
+				"dweb:/ipfs/QmXaxow6LX1FHFKXvMHbKrSn12csP81Fegmbu8HvhUd6MB"
+			]
+		},
+		"contracts/safemath.sol": {
+			"keccak256": "0x550edc31dffbfc4cc03a0782be2a00d21fb46c4c7701e7ad94119b2958df3141",
+			"urls": [
+				"bzz-raw://c83e2808dc5f0270c500b3d6778501864e2aa6ea544d945f5261a17ac332c1bb",
+				"dweb:/ipfs/QmaPhmn7YRdF9pvmbGUr2sg9mvWMkxpid4fZDb66hNdvGm"
+			]
+		},
+		"contracts/zombieattack.sol": {
+			"keccak256": "0x37fd18e9a2a66beb448e9b52fe581765b38c9e8ecd446a4924ca64b2f2ee95a5",
+			"urls": [
+				"bzz-raw://dd457af6bf3eabadd1d82893b7d5561a838b6d79133b2d4edc565bd34b3ca03c",
+				"dweb:/ipfs/QmTgsHDhshPbMyVizpHcZ1VzwnbjeXGi1HmvWWhHyQwtPD"
+			]
+		},
+		"contracts/zombiefactory.sol": {
+			"keccak256": "0xf07b2e29651df0fd29244e46f2c151c0279859bed6e21b7f4e083c2a39cf650b",
+			"urls": [
+				"bzz-raw://a14ebca476117f7de7f3d9fa001070963f24e3ab210badd848944f7d3820f7b4",
+				"dweb:/ipfs/Qmc8hgkepQMVnwa2ukidYdzbPZiEFzK1sfYp9mCspTKP5Y"
+			]
+		},
+		"contracts/zombiefeeding.sol": {
+			"keccak256": "0x489ae3d939eb65e85d599acb0d767eed46080b339be3ae7b4765931469993dfa",
+			"urls": [
+				"bzz-raw://0fc626f43612ed355467489807187401d86eec621f023a6daf1ddfbb4445aeec",
+				"dweb:/ipfs/Qmf8x6kjtzSK6fj8N1A6ZgTLBpFWpaJNm2Lq1WXaChuNL4"
+			]
+		},
+		"contracts/zombiehelper.sol": {
+			"keccak256": "0xaa97901e67849904e725525b2830899ec02d9a059a4a1c97e0aa8cc1a548b357",
+			"urls": [
+				"bzz-raw://22ced42f267f437b7af9022d09a4e187ff550597c583e0bdfa92359118c2b8e3",
+				"dweb:/ipfs/QmeH5SnYSnaVctw8L2RroGqCaxWKjudEzHnuX9qrzt26sY"
+			]
+		}
+	},
+	"version": 1
+}
